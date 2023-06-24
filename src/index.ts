@@ -1,6 +1,6 @@
 import { glob } from "glob";
 
-export function viteHtmlLoader(options = {}): any {
+export function viteHtmlOreder(options = {}): any {
   let config: any;
 
   return {
