@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import Inspect from "vite-plugin-inspect";
 import dts from "vite-plugin-dts";
-import { ViteHtmlLoader } from "./src/index";
+import { viteHtmlLoader } from "./src/index";
 import path from "path";
 
 export default defineConfig({
@@ -11,12 +11,12 @@ export default defineConfig({
       outputDir: ".vite-inspect",
     }),
     dts({ insertTypesEntry: true }),
-    ViteHtmlLoader(),
+    viteHtmlLoader(),
   ],
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "ViteHtmlLoader",
+      name: "viteHtmlLoader",
       fileName: "index",
     },
     rollupOptions: {
