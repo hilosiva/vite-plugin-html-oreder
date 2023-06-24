@@ -1,10 +1,10 @@
 import { glob } from "glob";
 
-export function ViteHtmlLoader(options = {}): any {
+export function viteHtmlLoader(options = {}): any {
   let config: any;
 
   return {
-    name: "ViteHtmlOreder",
+    name: "viteHtmlOreder",
 
     async configResolved(_config: any) {
       config = _config;
