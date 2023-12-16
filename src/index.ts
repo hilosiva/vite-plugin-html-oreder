@@ -1,4 +1,5 @@
 import { glob } from "glob";
+import { resolve } from "path";
 
 export function viteHtmlOreder(options = {}): any {
   let config: any;
@@ -19,7 +20,7 @@ export function viteHtmlOreder(options = {}): any {
         const fileName = document.replace(`${config.root}/`, "");
         const key = fileName.replace("index.html", "main").replace("/main", "");
 
-        inputs[key] = `${config.root}/${fileName}`;
+        inputs[key] = resolve(__dirname, `${config.root}/${fileName}`);
 
         rollupOptions.input = { ...inputs };
       });
