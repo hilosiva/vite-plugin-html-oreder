@@ -17,10 +17,10 @@ export function viteHtmlOreder(options = {}): any {
       const rollupOptions = config.build.rollupOptions;
 
       documents.forEach((document: any) => {
-        const fileName = document.replace(`${config.root}/`, "");
-        const key = fileName.replace("index.html", "main").replace("/main", "");
+        const fileName = document.replaceAll("\\", "/").replace(`${config.root}/`, "");
+        const key = fileName.replace(".html", "").replace("/index", "").replaceAll("/", "-");
 
-        inputs[key] = resolve(__dirname, `${config.root}/${fileName}`);
+        inputs[key] = document;
 
         rollupOptions.input = { ...inputs };
       });
